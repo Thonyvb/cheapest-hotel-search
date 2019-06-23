@@ -42,6 +42,12 @@ public class HotelsReader {
         return tempList;
     }
 
+    /*
+     * isValidInput
+     * Validates inputs format. Regex uses expectedInputFormat
+     * @param input is an input line from text file:  <customer_type>: <date1>, <date2>, <date3>, ..
+     * @return true if matches
+     * */
     public boolean isValidInput(String input) {
         Pattern pattern = Pattern.compile("^[A-Za-z ]++:.*");
         return pattern.matcher(input).matches();

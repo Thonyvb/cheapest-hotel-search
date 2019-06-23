@@ -11,7 +11,7 @@ public class HotelsAnalyzer {
         this.dateFormat = dateFormat;
     }
 
-    //allows for different Date formats
+    //allows for different Date formats if givenFormat is specified different to "ddMMMyyyy(E)"
     public Date parseDate(String unformattedDate, String givenFormat) throws ParseException {
         String preProcessed = unformattedDate;
 
@@ -42,6 +42,7 @@ public class HotelsAnalyzer {
      * getCheapestHotels
      * get a map of the hotels with matching minimum total rates
      * @param query is an input line from text file:  <customer_type>: <date1>, <date2>, <date3>, ..
+     * @param availableHotelsArray array containing names existing instances of Hotel interface
      * @return Map<Hotel, Double> with Hotel objects that have the minimum total rates between dates specified in query.
      * */
     public Map<Hotel, Double> getCheapestHotels(
@@ -101,6 +102,14 @@ public class HotelsAnalyzer {
         return maxRatingList.get(0);
     }
 
+    /*
+     * isValidInput
+     * Validates List format.
+     * @param input is an input line parsed to list
+     * from text file:  <customer_type>: <date1>, <date2>, <date3>, ..
+     * @return true if List contains more than one element after CustomerType
+     * else it does not contains dates
+     * */
     public boolean isValidInput(List<String> input) {
         if ( input.size() < 1) {
             System.out.println("No dates provided" +
@@ -109,6 +118,7 @@ public class HotelsAnalyzer {
         }
         return true;
     }
+
 
     public List<String> getCheapestMaxRatingHotel(List<List<String>> inputList) throws Exception {
         List<String> outputMessages = new ArrayList<>();
@@ -131,6 +141,7 @@ public class HotelsAnalyzer {
             }
 
             outputMessages.add(outputMessage);
+
             //clear data for next iteration if available
             minRates.clear();
             ratingsList.clear();

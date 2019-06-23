@@ -3,6 +3,7 @@ import java.util.*;
 
 public class Hotel_java {
     public static void main(String[] args) throws Exception {
+        //this data can be modified in the Objects
         String[] availableHotels = {"Lakewood", "Bridgewood", "Ridgewood"};
         String dateFormat = "ddMMMyyyy(E)";
         String expectedInputFormat = "<customer_type>: <date1>, <date2>, <date3>, ...";

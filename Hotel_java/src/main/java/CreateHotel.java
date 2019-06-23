@@ -5,7 +5,6 @@ public class CreateHotel {
     }
 
     public Hotel getHotel(String hotelName, String customerType) throws Exception {
-
         if (hotelName.equalsIgnoreCase("Lakewood")) {
             return customerType == null
                     ? new Lakewood(hotelName)
