@@ -6,9 +6,9 @@ ThoughtWorksInterview
 ###### 1) Para ejecutar:
     a. Con maven (*Preferible) en terminal/cmd
         i.  ) cambiar directorio a:
-               ```cd ~/Hotel_java ```
-        ii. ) ```mvn clean install```
-        iii.) ```mvn exec:java -Dexec.mainClass=Hotel_java```
+               cd ~/Hotel_java 
+        ii. ) mvn clean install
+        iii.) mvn exec:java -Dexec.mainClass=Hotel_java
 
     b. En cmd windows o en Terminal mac
         i. ) Cambiar directorio a:
