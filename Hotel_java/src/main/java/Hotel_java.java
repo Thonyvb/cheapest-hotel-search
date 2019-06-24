@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.io.File;
 import java.util.*;
 
@@ -9,14 +10,13 @@ public class Hotel_java {
         String expectedInputFormat = "<customer_type>: <date1>, <date2>, <date3>, ...";
 
         String filename;
-        Scanner inputReader = new Scanner(System.in);
         File inputFile;
 
         do {
-            System.out.println("Please input a valid file name or 'exit' to close / " +
-                    "Ingresa el nombre correcto del archivo o 'exit' para salir");
+            filename = JOptionPane.showInputDialog(null,
+                    "Please input a valid file name or 'exit' to close / " +
+                            "Ingresa el nombre correcto del archivo o 'exit' para salir");
 
-            filename = inputReader.nextLine();
 
             if( filename.equalsIgnoreCase("exit")) {
                 System.exit(0);
@@ -31,14 +31,18 @@ public class Hotel_java {
         List<List<String>> inputList = reader.readInput(inputFile);
 
         if (inputList.isEmpty()){
-            System.out.println("Empty file / Archivo vacio");
+            JOptionPane.showMessageDialog(null,
+                    "Empty file / Archivo vacio");
             System.exit(0);
         }
 
         List<String> messagesPrint = analyzer.getCheapestMaxRatingHotel(inputList);
+        StringBuilder showMessage = new StringBuilder("Cheapest Hotel: \n");
 
         for(String message : messagesPrint) {
-            System.out.println(message);
+            showMessage.append("\n " + message +" \n");
         }
+        showMessage.append("\n");
+        JOptionPane.showMessageDialog(null, showMessage);
     }
 }

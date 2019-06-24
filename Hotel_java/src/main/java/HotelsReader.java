@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -23,9 +24,11 @@ public class HotelsReader {
             String inputLine;
             while ((inputLine = textReader.readLine()) != null) {
                 if (!isValidInput(inputLine)){
-                    System.out.println("No valid input provided" +
+                    String showMessage = "No valid input provided" +
                             " / El formato de datos esta incorrecto. " +
-                            "Porfavor, use: " + expectedInputFormat);
+                            "Porfavor, use: " + expectedInputFormat;
+                    JOptionPane.showMessageDialog(null, showMessage);
+
                     System.exit(0);
                 }
 

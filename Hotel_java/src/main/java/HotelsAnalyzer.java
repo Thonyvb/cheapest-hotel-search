@@ -27,9 +27,14 @@ public class HotelsAnalyzer {
 
     public double calculatePrice(Hotel hotel, List<String> dates) throws ParseException {
         double total = 0.0;
+        Calendar calendar = Calendar.getInstance();
+
         for (String d : dates) {
             Date aDate = parseDate(d, dateFormat);
-            if ((aDate.getDay() == 0) || (aDate.getDay() == 6)) {
+            calendar.setTime(aDate);
+            int day = calendar.get(Calendar.DAY_OF_WEEK);
+
+            if ((day == Calendar.SATURDAY) || (day == Calendar.SUNDAY)) {
                 total += hotel.getWeekendRate();
             } else {
                 total += hotel.getWeekRate();
