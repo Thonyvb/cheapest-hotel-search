@@ -1,5 +1,7 @@
-# Hotels java
-Thoughtworks Interview
+# Cheapeast hotels search using java
+Project for entry level interview
+
+## About the project:
 
 HOTEL RESERVATION PROBLEM
  
@@ -38,16 +40,16 @@ Rewards: 26Mar2009(thur), 27Mar2009(fri), 28Mar2009(sat)
 OUTPUT 3:
 Ridgewood
 
-## Explicacion:
+## Explanation:
 
-###### 1) Para ejecutar:
-    a. Con maven (*Preferible) en terminal/cmd
+###### 1) To Run:
+    a. with maven (*Preferible)
         i.  ) cambiar directorio a:
                cd ~/Hotel_java 
         ii. ) mvn clean install
         iii.) mvn exec:java -Dexec.mainClass=Hotel_java
 
-    b. En cmd windows o en Terminal mac
+    b.  cmd windows or Terminal mac
         i. ) Cambiar directorio a:
             cd ~/Hotel_java/src/main/java
 
@@ -55,31 +57,11 @@ Ridgewood
         iii.) java Hotel_java
         iv. ) dialogo le pedirá insertar archivo de texto
 
-    c. En IntelliJ IDE
-        i. ) importar proyecto
-        ii.) ejecutar main en Hotel_java.java
+###### 2) System design:
+I used the Factory Pattern design pattern for hotel creation. The use of this pattern facilitates the creation of hotels by specifying only their names. This allows the code to be extensible and less dependent on the specific instance of a hotel. Because there is common behavior among hotels, the `HotelBase` class implements methods that all hotels can inherit. Derivatives of `HotelBase` can be created with or without specifying the type of customer to use ( "reward" or "regular" customer). I added the functionality to set the customer type, so if a customer becomes "reward" in the future, reduced rates can be applied using the `hotel.setCustomerType()` method.
 
-###### 2) Para el diseño:
-    Utilicé el patrón de creaciones de diseño Factory Pattern para la creación de hoteles.
-    La utilización de este patrón ayuda a la creación de hoteles tan solo especificando su nombre.
-    Esto permite que el código sea extensible y menos dependiente de la especifica instancia de un hotel.
-    Debido a que hay comportamiento en común entre los Hoteles, la clase HotelBase implementa los métodos que
-    todos los Hoteles pueden heredar. Las derivaciones de HotelBase pueden ser creadas con o sin especificar el tipo
-    de cliente que va a usarlas (Cliente “reward” o cliente “regular”).
-    Añadí la funcionalidad de establecer el tipo de cliente, si a futuro un cliente se convierte en “reward” puede aplicárseles
-    las tarifas reducidas usando el método hotel.setCustomerType().
+For handling hotel information, I created the `HotelsAnalyzer` class. This makes it easier to add new functionalities in the future. `HotelsAnalyzer` provides functionalities such as obtaining the price of a hotel on specific dates, getting the hotel with the highest ranking, the cheapest hotel, and the highest-ranking hotel that is the cheapest. All these functions are used to deliver the cheapest hotel (the program's objective). However, by making each function more modular, the code becomes extensible and easy to test.
 
-    Para la manipulación de la información que tienen los hoteles creé la clase HotelsAnalyzer. De tal manera es más fácil
-    añadir nuevas funcionalidades a futuro.  HotelsAnalyzer provee funcionalidades como obtener el precio de un hotel en determinadas
-    fechas, obtener el hotel con más alto ranking, el hotel más barato, el hotel con mayor ranking que es el más barato.
-    Todas estas funciones son usadas para entregar el hotel mas barato (objetivo del programa), pero a la vez, al hacer cada función
-    más modular el código se vuelve extensible y fácil de testar.
+To read files, assuming that only text files will be provided, I created the `HotelsReader` class to accept new input formats in the future and validate them. Currently, I assumed that the only format to use is: "Regular: 16Mar2009(mon), 17Mar2009(tues), 18Mar2009(wed)". However, the code is ready for modifications and to accept more formats. Also, I decided to add the option to accept files with multiple lines of input to make the program more powerful and easier to subject to robust testing.
 
-    Para leer archivos, asumiendo que solo se proveerán archivos de texto, creé la clase HotelsReader con el fin de poder aceptar
-    nuevos formatos de input a futuro y validarlos. Actualmente, asumí que el único formato a usar es:
-    “Regular: 16Mar2009(mon), 17Mar2009(tues), 18Mar2009(wed)”. Sin embargo, el código esta listo recibir modificaciones
-    y aceptar más formatos. Así también, decidí agregar la opción de aceptar archivos con varias líneas de input con el fin de que
-    el programa sea mas potente y sea más fácil de someter a pruebas robustas.
-
-    El código incluye los varios tests que diseñe. La utilización de JOptionPane fue para mejorar la experiencia del usuario.
-
+The code includes various tests that I designed. The use of `JOptionPane` was to improve the user experience.
