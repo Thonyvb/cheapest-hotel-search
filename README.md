@@ -1,5 +1,5 @@
-# Hotel_java
-ThoughtWorksInterview
+# Hotels java
+Thoughtworks Interview
 
 ## Explicacion:
 
